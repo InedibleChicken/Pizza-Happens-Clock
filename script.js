@@ -1,7 +1,19 @@
 function showTime() {
-    document.getElementById('currentTime').innerHTML = new Date().toUTCString();
+  const options = {
+    timeZone: 'America/New_York',
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+    timeZoneName: 'short'
+  };
+  document.getElementById('currentTime').textContent =
+    new Date().toLocaleString('en-US', options);
 }
+
 showTime();
-setInterval(function () {
-    showTime();
-}, 1000);
+setInterval(showTime, 1000);
